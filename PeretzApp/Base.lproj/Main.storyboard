@@ -191,6 +191,12 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.14117647059999999" green="0.14117647059999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <connections>
+                                            <outlet property="productDesc" destination="ut7-7N-aAD" id="zZh-uK-afc"/>
+                                            <outlet property="productImage" destination="D7v-7A-PsE" id="vgC-ex-bUy"/>
+                                            <outlet property="productName" destination="lVt-8F-oDs" id="rkE-99-Dsq"/>
+                                            <outlet property="productPrice" destination="vlz-Ok-Sd4" id="DFl-lj-nnV"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

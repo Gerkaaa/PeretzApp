@@ -14,6 +14,7 @@
 		C23E0F2D27B820A3006F35D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C23E0F2C27B820A3006F35D3 /* Assets.xcassets */; };
 		C23E0F3027B820A3006F35D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C23E0F2E27B820A3006F35D3 /* LaunchScreen.storyboard */; };
 		C23E0F3827B82C96006F35D3 /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23E0F3727B82C96006F35D3 /* CardTableViewCell.swift */; };
+		C2F44EE027B99278006BA11F /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F44EDF27B99278006BA11F /* Product.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		C23E0F2F27B820A3006F35D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C23E0F3127B820A3006F35D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C23E0F3727B82C96006F35D3 /* CardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
+		C2F44EDF27B99278006BA11F /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				C23E0F2C27B820A3006F35D3 /* Assets.xcassets */,
 				C23E0F2E27B820A3006F35D3 /* LaunchScreen.storyboard */,
 				C23E0F3127B820A3006F35D3 /* Info.plist */,
+				C2F44EDF27B99278006BA11F /* Product.swift */,
 			);
 			path = PeretzApp;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 			files = (
 				C23E0F2827B820A3006F35D3 /* ViewController.swift in Sources */,
 				C23E0F2427B820A3006F35D3 /* AppDelegate.swift in Sources */,
+				C2F44EE027B99278006BA11F /* Product.swift in Sources */,
 				C23E0F2627B820A3006F35D3 /* SceneDelegate.swift in Sources */,
 				C23E0F3827B82C96006F35D3 /* CardTableViewCell.swift in Sources */,
 			);
