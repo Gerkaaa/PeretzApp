@@ -15,16 +15,19 @@ class ViewController: UIViewController {
     var productsList = [Product]()
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
         tableView.delegate = self
         makeRequest()
-        
     }
 
     private func makeRequest() {
+        spinner.startAnimating()
+
         var request = URLRequest(url: URL(string: apiUrl)!)
         request.httpMethod = "GET"
         
@@ -32,7 +35,11 @@ class ViewController: UIViewController {
             do {
                 let products = try JSONDecoder().decode([Product].self, from: data!)
                 self.productsList = products
-                self.tableView.reloadData()
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    spinner.stopAnimating()
+                }
             } catch {
                 print(error)
             }
@@ -50,17 +57,20 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: idCell) as! CardTableViewCell
         let productItem = self.productsList[indexPath.row]
+  
+        cell.id = productItem.id
         cell.productName.text = productItem.name
         cell.productDesc.text = productItem.description
-//        cell.productImage.image = UIImage(named: productItem.image)
+        cell.productImage.image = UIImage(data: try! Data(contentsOf: URL(string: productItem.image)!))
         cell.productPrice.text = "\(productItem.price) ₽"
-        
+        cell.selectionStyle = .none
+
         return cell
     }
     
-//            func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//                return 100.0
-//            }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 100.0
+//    }
 
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        print("\(indexPath.row)")
