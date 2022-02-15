@@ -26,6 +26,7 @@ class CardTableViewCell: UITableViewCell {
         checkCountValue()
         // В демонстрационных целях ставим рандомный Bool, потому что в апишке всегда false приходит :(
         newLabel.isHidden = Bool.random()
+        selectionStyle = .none
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -54,5 +55,14 @@ class CardTableViewCell: UITableViewCell {
         count -= 1
         self.countLabel.text = String(count)
         checkCountValue()
+    }
+    
+    func configure(product: Product) {
+        
+        id = product.id
+        productName.text = product.name
+        productDesc.text = product.description
+        productImage.image = UIImage(data: try! Data(contentsOf: URL(string: product.image)!))
+        productPrice.text = "\(product.price) ₽"
     }
 }

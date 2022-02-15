@@ -20,6 +20,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupView()
+    }
+    
+    private func setupView() {
         tableView.dataSource = self
         tableView.delegate = self
         makeRequest()
@@ -50,29 +54,16 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return self.productsList.count
+       return productsList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: idCell) as! CardTableViewCell
-        let productItem = self.productsList[indexPath.row]
-  
-        cell.id = productItem.id
-        cell.productName.text = productItem.name
-        cell.productDesc.text = productItem.description
-        cell.productImage.image = UIImage(data: try! Data(contentsOf: URL(string: productItem.image)!))
-        cell.productPrice.text = "\(productItem.price) ₽"
-        cell.selectionStyle = .none
-
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: idCell) as? CardTableViewCell else { return UITableViewCell() }
+        let productItem = productsList[indexPath.row]
+        
+        cell.configure(product: productItem)
+        
         return cell
     }
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 100.0
-//    }
-
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print("\(indexPath.row)")
-//    }
 }
