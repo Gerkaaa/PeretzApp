@@ -1,0 +1,6 @@
+framework module Pods_PeretzApp {
+  umbrella header "Pods-PeretzApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
